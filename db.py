@@ -4,8 +4,12 @@ from base64 import b64encode as enc, b64decode as dec
 from supabase_py import create_client
 
 
-obj_to_text = lambda obj: enc(dumps(obj)).decode()
-text_to_obj = lambda text: loads(dec(text.encode('utf-8')))
+def obj_to_text(obj):
+    return enc(dumps(obj)).decode()
+
+
+def text_to_obj(text):
+    return loads(dec(text.encode('utf-8')))
 
 
 class DB:
@@ -44,4 +48,3 @@ class DB:
         if data := json.get('data', [None]):
             if data[0]:
                 return data[0]
-    

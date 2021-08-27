@@ -1,7 +1,5 @@
 import os
 import sys
-import time
-import base64
 import pickle
 from schoolopy import Auth, Schoology
 from urllib.parse import urlparse, parse_qs, urlencode
@@ -10,7 +8,6 @@ from urllib.parse import urlparse, parse_qs, urlencode
 APP_KEY = os.getenv('APP_KEY')
 APP_SECRET = os.getenv('APP_SECRET')
 sys.setrecursionlimit(1_000_000)
-
 
 
 class District833User:
@@ -46,6 +43,6 @@ class District833User:
     def config_sc(self):
         if self.sc:
             self.sc.limit = 10
-    
+
     def tobin(self):
         return pickle.dumps(self)
